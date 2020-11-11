@@ -26,8 +26,7 @@ Mostre no console o segundo elemento desse último array, criado acima, com a
 frase:
 "O segundo elemento do segundo array é [ELEMENTO]."
 */
-//voltar para aprender a concatenar
-console.log('O segundo elemento do segundo array é ' + array[6][1] )
+console.log('O segundo elemento do segundo array é ' + array[5][1] + '.')
 
 /*
 Mostre no console quantos itens tem o primeiro array criado, com a frase:
@@ -39,7 +38,7 @@ console.log('O primeiro array tem '+ array.length + ' itens.')
 Agora mostre no console quantos itens tem o segundo array criado, com a frase:
 "O segundo array tem [QUANTIDADE DE ITENS] itens."
 */
-console.log('O segundo array criado tem ' + array[6].length + ' itens.')
+console.log('O segundo array criado tem ' + array[5].length + ' itens.')
 
 /*
 Utilizando a estrutura de repetição `while`, mostre no console todos os números
@@ -70,8 +69,11 @@ Só vamos mudar o range:
 - No segundo "for", mostre os números ímpares entre 111 e 125, inclusive eles.
 */
 console.log( 'Números pares entre 100 e 120:' );
-//for(let cont = 100; cont <= 120;cont % 2 === 0? console.log(cont) : ''){
-//}
+for(let cont = 100; cont <= 120; cont++){
+    cont % 2 === 0 ? console.log(cont) : '';
+}
 
-//console.log( 'Números ímpares entre 111 e 125:' );
-// ?
+console.log( 'Números ímpares entre 111 e 125:' );
+for(let cont = 111; cont <= 125; cont++){
+    cont % 2 === 1? console.log(cont) : '';
+}
