@@ -103,7 +103,10 @@
     `division` e `mod`, e atribua à elas `calculator`, passando números
     diferentes para cada chamada.
     */
-    // ?
+    let subtraction = calculator(5,23); //-18
+    let multiplication = calculator (2,5); //10
+    let division = calculator(6,2); //3
+    let mod = calculator(50,32); //1
 
     /*
     Mostre as variáveis acima no `console` (uma chamada de console por variável),
@@ -112,17 +115,24 @@
     As suas respostas devem estar abaixo dos `console.log` referentes à cada
     chamada.
     */
-    console.log( 'O resultado da subtração é:' );
-    // ?
+    console.log( `O resultado da subtração é:` );
+    console.log(subtraction(function(numero1, numero2){
+        return numero1 - numero2;
+    }));
 
-    console.log( 'O resultado da multiplicação é:' );
-    // ?
+    console.log( `O resultado da multiplicação é:` );
+    console.log(multiplication(function(numero1, numero2){
+        return numero1 * numero2;
+    }));
 
-    console.log( 'O resultado da divisão é:' );
-    // ?
+    console.log( `O resultado da divisão é:` );
+    console.log(division(function(numero1, numero2){
+        return numero1 / numero2;
+    }));
 
-    console.log( 'O resto da divisão é:' );
-    // ?
-
+    console.log( `O resto da divisão é:` );
+    console.log(mod(function(numero1, numero2){
+        return numero2 % numero2;
+    }));
 
 })();
