@@ -11,6 +11,7 @@ resolver o problema corretamente.
 */
 var five = '5';
 console.log( five + ' é número?', typeof five === 'number' );
+console.log('novo')
 
 var concat = 10 + 10;
 console.log( '"' + concat + '" é uma string? E é igual a "1010"?', typeof concat === 'string' );
