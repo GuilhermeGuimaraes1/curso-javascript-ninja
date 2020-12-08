@@ -82,8 +82,17 @@
     operador passado para a função "calculator", e passando para esse método
     os dois parâmetros da função de retorno de "calculator".
     */
-    // ?
-
+    function calculator(op){
+        if(!isOperatorValid(op)){
+            return false;
+        }
+        return function(a,b){
+            if(a !== Number || b !== Number){
+                return false;
+            }
+            return operation[op] (a,b);
+        };
+    }
     /*
     Crie uma função chamada "showOperationMessage" que recebe três parâmetros:
     - o operador, o primeiro número e o segundo número. O retorno da função
@@ -91,7 +100,9 @@
     'A operação [NUMBER1] [OPERATOR] [NUMBER2] =';
     Essa função mostrará a mensagem da operação que criaremos mais abaixo.
     */
-    // ?
+    function showOperationMessage(number1, op, number2){
+        return `A operacao ${number1} ${op} ${number2} = `
+    }
 
     /*
     Crie uma função chamada "showErrorMessage" que recebe um parâmetro: o
@@ -99,15 +110,18 @@
     Essa função deverá retornar a frase:
     'Operação "[OPERATOR]" não permitida!'
     */
-    // ?
-
+    function showErrorMessage(op){
+        return `${op} nao permitida`;
+    }
     /*
     Nossa calculadora está pronta! Agora vamos testá-la:
     PASSO 1:
     - Declare 3 variáveis: "number1" e "number2", iniciando com valor zero, e
     "operationSignal", sem valor por enquanto.
     */
-    // ?
+    let number1 = 0;
+    let number2 = 0;
+    let operarationSignal;
 
     /*
     PASSO 2:
@@ -115,8 +129,9 @@
     variável chamada "sum", que receba a função "calculator", passando por
     parâmetro a variável que recebeu o sinal da operação.
     */
-    // ?
-
+    
+   operarationSignal = '+';
+   let sum = calculator(operarationSignal);
     /*
     PASSO 3:
     "sum" agora é uma função, e, se o sinal correto não foi passado para a
@@ -129,7 +144,11 @@
     - O segundo, a função de soma, passando os dois operandos.
     - Se "sum" for "false", mostrar no console a mensagem de erro.
     */
-    // ?
+    if(sum ){
+        number1 = 10;
+        number2 = 12;
+        console.log(showOperationMessage(operarationSignal, number1, number2), sum(number1, number2));
+    }
 
     /*
     Repita desde o "PASSO 2" com as operações de subtração, multiplicação,
