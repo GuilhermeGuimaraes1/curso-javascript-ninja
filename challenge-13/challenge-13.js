@@ -63,7 +63,17 @@
     /*
     Crie um novo array chamado `nordeste`, que tenha os estados do nordeste.
     */
-    let nordeste = ['Ceara', 'Maranhao', 'Paraiba','Pernanbuco'];
+    let nordeste = [
+        'Alagoas',
+        'Bahia',
+        'Ceara', 
+        'Maranhao', 
+        'Paraiba',
+        'Pernanbuco',
+        'Piaui',
+        'Rio Grande do Norte',
+        'Sergipe'
+    ];
 
     /*
     Mostre no console os estados do nordeste.
@@ -105,7 +115,10 @@
     */
    newBrasil = []
     brasil.forEach(function(id, estado){
-        newBrasil.push({id: id, estado: estado})
+        newBrasil.push({
+            id: estado, 
+            estado: id
+        });
     });
 
     /*
@@ -129,8 +142,8 @@
     console.log(
         //operador ternario
         resultado 
-        ? 'Sim, todos os estados tem mais de 7 letras!' : 
-        'Nem todos os estados tem mais de 7 letras!');
+        ? 'Sim, todos os estados tem mais de 7 letras!'  
+        : 'Nem todos os estados tem mais de 7 letras!');
     /*
     Percorra o array `brasil` e verifique se o Ceará está incluído, atribuindo o
     resultado à uma variável. Se esse estado existir no array, mostrar a frase no
@@ -143,7 +156,10 @@
     let resultado2 = brasil.some(function(item){  
         return item === 'Ceara';
     });
-    console.log(resultado2 ? 'Ceará está incluído!' : 'Ceará não foi incluído :(' )
+    console.log(
+        resultado2
+         ? 'Ceará está incluído!' 
+         : 'Ceará não foi incluído :(' );
 
     /*
     Percorra o array `newBrasil` e crie um novo array que some 1 no ID de cada
@@ -153,8 +169,8 @@
     */
     let map = newBrasil.map(function(item,  index){
         return {
-            id: item.estado + 1,
-            estado: item.id   + ' pertebce ao brasil'
+            id: item.id + 1,
+            estado: item.estado   + ' pertebce ao brasil'
         };
     });
 
