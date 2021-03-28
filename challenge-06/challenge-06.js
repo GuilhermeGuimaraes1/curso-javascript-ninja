@@ -110,4 +110,4 @@ console.log(convertToHex('green'))
 console.log(convertToHex('black'))
 console.log(convertToHex('verde'))
 console.log(convertToHex('branco'))
-console.log(convertToHex('roxo'))
+console.log(convertToHex('roxo'
