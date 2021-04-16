@@ -28,17 +28,18 @@
   - Ao pressionar o botão "CE", o input deve ficar zerado.
   */
 
-  let $visor = doc.querySelector('[data-js="visor"]');
-  let $buttonsNumbers = doc.querySelectorAll('[data-js="button-number"]');
-  let $buttonOperations = doc.querySelectorAll('[data-js="button-operation"]');
-  let $buttonCE = doc.querySelector('[data-js="button-ce"]');
-  let $buttonEqual = doc.querySelector('[data-js="button-equal"]');
+  let $visor = doc.querySelector('[data-js="visor"]'); // pegou o imput do html
+  let $buttonsNumbers = doc.querySelectorAll('[data-js="button-number"]'); // pegou todos os botões de números no html
+  let $buttonOperations = doc.querySelectorAll('[data-js="button-operation"]'); // pegou todos os botões de operação
+  let $buttonCE = doc.querySelector('[data-js="button-ce"]'); //botão ce
+  let $buttonEqual = doc.querySelector('[data-js="button-equal"]'); //botão igual
 
+  //adicionando o evento de click nos numeros
   Array.prototype.forEach.call($buttonsNumbers, function(button){  //pega todos os botões e faz um interação entre eles.
     button.addEventListener('click', handleClickNumb, false); // passa o envento para toda vez que o botão for clicado.
   });
 
-  //mostrar as operações no input
+  //Adicionando o evento de click nas operações
   Array.prototype.forEach.call($buttonOperations, function(button){
     button.addEventListener('click', handleClickOp,false);
   });
@@ -47,7 +48,7 @@
 
   $buttonEqual.addEventListener('click', handleClickEqual, false);
 
-  //faz a cocatenção dos botoes clicados
+  //faz a concatenção dos botoes clicados
   function handleClickNumb(){ //função que diz o que vai ser feito quando clicar o botão
     $visor.value += this.value;
   }
@@ -79,7 +80,7 @@
 
   function handleClickEqual(){
     $visor.value = removeLastItemIfItIsAnOperator($visor.value);
-    let allValues = $visor.value.match(/\d+[+x÷-]?/g);
+    let allValues = $visor.value.match(/\d+[+x÷-]?/g);//regex pegar todos os numeros que tem acompanhado as operações
     let result = allValues.reduce(function(accumulated, actual){
       let firstValue = accumulated.slice(0,-1);
       let operator = accumulated.split('').pop();
