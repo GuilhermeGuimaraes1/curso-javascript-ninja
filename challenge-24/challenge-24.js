@@ -50,40 +50,50 @@
   }
 
   function isLastItemAnOperation(number) {
-    var operations = ['+', '-', 'x', '÷'];
+    var operations = getOperations();
     var lastItem = number.split('').pop();
     return operations.some(function(operator) {
       return operator === lastItem;
     });
   }
 
-  function removeLastItemIfItIsAnOperator(number) {
-    if(isLastItemAnOperation(number)) {
-      return number.slice(0, -1);
+  function getOperations(){
+    return $buttonsOperations;
+  }
+
+  function removeLastItemIfItIsAnOperator(string) {
+    if(isLastItemAnOperation(string)) {
+      return string.slice(0, -1);
     }
-    return number;
+    return string;
   }
 
   function handleClickEqual() {
-    $visor.value = removeLastItemIfItIsAnOperator($visor.value);
-    var allValues = $visor.value.match(/\d+[+x÷-]?/g);
-    $visor.value = allValues.reduce(function(accumulated, actual) {
+    $visor.value = removeLastItemIfItIsAnOperator($visor.value); // atualizar o valor do visor removendo o ultimo item se ele for operador
+    var allValues = $visor.value.match(/\d+[+x÷-]?/g);//pegar a expressão tudo que for numero seguido de um operador
+    $visor.value = allValues.reduce(calculateAllVelues); // fazer os calculos de todos os valores
+  }
+
+    function calculateAllVelues (accumulated, actual) {
       var firstValue = accumulated.slice(0, -1);
       var operator = accumulated.split('').pop();
       var lastValue = removeLastItemIfItIsAnOperator(actual);
       var lastOperator = isLastItemAnOperation(actual) ? actual.split('').pop() : '';
+      return doOperation(operator, firstValue, lastValue)  + lastOperator;
+    }
+
+    function doOperation(operator, firstValue, lastValue, lastOperator){
       switch(operator) {
         case '+':
-          return ( Number(firstValue) + Number(lastValue) ) + lastOperator;
+          return  Number(firstValue) + Number(lastValue);
         case '-':
-          return ( Number(firstValue) - Number(lastValue) ) + lastOperator;
+          return  Number(firstValue) - Number(lastValue);
         case 'x':
-          return ( Number(firstValue) * Number(lastValue) ) + lastOperator;
+          return  Number(firstValue) * Number(lastValue);
         case '÷':
-          return ( Number(firstValue) / Number(lastValue) ) + lastOperator;
+          return  Number(firstValue) / Number(lastValue);
       }
-    });
-  }
+    }
 
   initialize();
 })(window, document);
